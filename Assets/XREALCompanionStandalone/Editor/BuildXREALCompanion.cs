@@ -10,8 +10,10 @@ namespace XREALCompanionStandalone.Editor
     public static class BuildXREALCompanion
     {
         private const string ScenePath = "Assets/XREALCompanionStandalone/Scenes/Air2Companion.unity";
-        private const string OutputDirectory = "Builds/XREALCompanionAir2";
-        private const string OutputPath = OutputDirectory + "/XREAL Companion.exe";
+        private const string DefaultOutputDirectory = "Builds/XREALCompanionAir2";
+        private static string OutputDirectory =>
+            System.Environment.GetEnvironmentVariable("XREAL_COMPANION_BUILD_DIR") ?? DefaultOutputDirectory;
+        private static string OutputPath => Path.Combine(OutputDirectory, "XREAL Companion.exe");
 
         [MenuItem("XREAL Companion/Build Air 2 Prototype")]
         public static void BuildFromMenu()
@@ -72,7 +74,21 @@ namespace XREALCompanionStandalone.Editor
 
             Debug.Log("[XREAL Companion] Windows build ready: " + Path.GetFullPath(OutputPath));
             foreach (string name in new[] { "README.md", "THIRD-PARTY-NOTICES.txt", "ar-drivers-LICENSE.txt", "Apache-2.0-Vosk.txt" })
-                File.Copy("Assets/XREALCompanionStandalone/" + name, OutputDirectory + "/" + name, true);
+                File.Copy(Path.Combine("Assets/XREALCompanionStandalone", name), Path.Combine(OutputDirectory, name), true);
+
+            string licenseSource = Path.Combine("Assets/XREALCompanionStandalone", "licenses");
+            if (Directory.Exists(licenseSource))
+            {
+                string licenseDestination = Path.Combine(OutputDirectory, "licenses");
+                Directory.CreateDirectory(licenseDestination);
+                foreach (string licenseFile in Directory.GetFiles(licenseSource, "*.txt", SearchOption.AllDirectories))
+                {
+                    string relativePath = licenseFile.Substring(licenseSource.Length).TrimStart(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                    string destination = Path.Combine(licenseDestination, relativePath);
+                    Directory.CreateDirectory(Path.GetDirectoryName(destination));
+                    File.Copy(licenseFile, destination, true);
+                }
+            }
         }
     }
 }
