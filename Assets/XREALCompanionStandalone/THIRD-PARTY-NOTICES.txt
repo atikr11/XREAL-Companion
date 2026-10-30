@@ -11,6 +11,16 @@ is included in Apache-2.0-Vosk.txt.
 https://github.com/alphacep/vosk-api
 https://alphacephei.com/vosk/models
 
+The bundled Vosk Windows native dependencies include:
+- libstdc++-6.dll and libgcc_s_seh-1.dll: GNU General Public License v3 or
+  later, with the GCC Runtime Library Exception, version 3.1. The texts are
+  included in licenses/GPL-3.0.txt and licenses/GCC-Runtime-Library-Exception-3.1.txt.
+- libwinpthread-1.dll: MIT license (mingw-w64 project) and a BSD-style
+  license notice for portions derived from Lockless Inc. The texts are
+  included in licenses/libwinpthread-COPYING.txt.
+These files are separate runtime libraries; see their included notices for
+their respective terms.
+
 XREAL Unity SDK:
 The Unity project depends on XREAL's Unity XR and Experimental packages. The
 application calls the Experimental package's Windows fullscreen integration;
