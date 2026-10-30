@@ -1,0 +1,33 @@
+# Unity-generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+Packages/LocalSDK/*.tar.gz
+Assets/Samples/XREAL XR Plugin Experimental/
+Assets/Scenes/
+Assets/Scenes.meta
+Assets/TutorialInfo/
+Assets/TutorialInfo.meta
+Assets/Readme.asset*
+Tools/Air2Sensors/probe-result.txt
+
+# IDE and generated project files
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.booproj
+*.svd
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

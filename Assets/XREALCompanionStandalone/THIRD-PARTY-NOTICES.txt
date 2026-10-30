@@ -1,0 +1,22 @@
+The direct HID implementation uses protocol and coordinate-system research documented by ar-drivers-rs:
+https://github.com/badicsalex/ar-drivers-rs
+src/nreal_air.rs and src/lib.rs
+Copyright (C) 2023 Alex Badics and contributors.
+The upstream MIT license is included in ar-drivers-LICENSE.txt.
+
+Offline voice recognition uses Vosk API 0.3.38 (NuGet package) and the
+vosk-model-small-en-us-0.15 English model from Alpha Cephei.
+Both are distributed under the Apache License, Version 2.0. The license text
+is included in Apache-2.0-Vosk.txt.
+https://github.com/alphacep/vosk-api
+https://alphacephei.com/vosk/models
+
+XREAL Unity SDK:
+The Unity project depends on XREAL's Unity XR and Experimental packages. The
+application calls the Experimental package's Windows fullscreen integration;
+Air 2 head-motion readings are obtained directly over USB/HID by this app and
+do not use XREAL SDK tracking APIs. XREAL SDK components retain their own
+terms and are not covered by the MIT license for XREAL Companion source.
+Obtain the packages from https://developer.xreal.com/download/ and follow the
+applicable XREAL API terms. Do not redistribute the SDK archives unless those
+terms explicitly allow it.

@@ -1,0 +1,1 @@
+Windows HUD prototype for XREAL Air 2: four spatial productivity panels, offline local voice commands, separate desktop settings, and optional AI chat. No AI API key is bundled. Uses XREAL Experimental Unity package for fullscreen; head motion is read directly over USB/HID.
